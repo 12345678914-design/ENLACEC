@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia - Gestión</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main id="app-root">
+        
+        <section id="login-view" class="view" style="opacity: 1;">
+  <div class="card">
+    <div class="icon-container">
+      <i class="phone-icon">📱</i> </div>
+    <h2>Bienvenido</h2>
+    <p>Ingresa tu número para continuar</p>
+
+    <div class="input-group">
+      <input type="tel" id="telefono-input" placeholder="9XXXXXXXX" maxlength="9">
+    </div>
+
+    <button id="btn-login" class="btn-primary" disabled>
+  <span id="btn-text">Continuar</span>
+  <div id="btn-loader" class="spinner" style="display: none;"></div>
+</button>
+
+    <button class="btn-link" onclick="mostrarSoporte()">¿Necesitas ayuda?</button>
+  </div>
+</section>
+
+        <section id="password-view" class="view" style="display: none;">
+  <div class="card">
+    <div class="icon-container" id="icon-pass">🔒</div>
+    <h2 id="title-pass">Ingresa tu contraseña</h2>
+    <p id="subtitle-pass">Para continuar</p>
+
+    <div class="input-group">
+      <input type="password" id="password-input" placeholder="Contraseña">
+    </div>
+
+    <button id="btn-continuar-pass" class="btn-primary">
+      <span id="btn-text-pass">Ingresar</span>
+      <div id="btn-loader-pass" class="spinner" style="display: none;"></div>
+    </button>
+  </div>
+</section>
+<section id="home-view" class="view" style="display: none;">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="logo">ACADEMY PRO</div>
+            <nav>
+                <a href="#" class="sidebar-item active"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="#" class="sidebar-item"><i class="fa-solid fa-calendar-check"></i> Asistencias</a>
+                </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h2>Panel de Control</h2>
+                <div class="header-right">
+                    <div class="notification-btn" id="btn-notis">
+                        <i class="fa-solid fa-bell"></i>
+                        <span id="notif-badge" class="notification-badge" style="display: none;">0</span>
+                    </div>
+                </div>
+            </header>
+            
+            <section id="news-grid" class="news-container">
+                </section>
+        </main>
+    </div>
+</section>
+
+    </main>
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
