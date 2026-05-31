@@ -1,0 +1,223 @@
+/* Archivo: css/styles.css */
+:root {
+    --primary: #6366f1;
+    --surface: #ffffff;
+    --background: #f8fafc;
+    --text-main: #1e293b;
+    --text-variant: #64748b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+/* Archivo: css/styles.css */
+.card {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.icon-container { font-size: 3rem; margin-bottom: 1rem; }
+
+/* Archivo: css/styles.css */
+
+/* 1. Aseguramos que todo elemento calcule su tamaño correctamente */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 2. Ajuste específico para el input */
+.input-group {
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;        /* Ocupa el 100% del padre */
+    padding: 15px;      /* El padding ya no sumará ancho gracias al box-sizing */
+    margin: 15px 0;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 1rem;
+    outline: none;
+    /* Esto es lo que soluciona que se sobresalga */
+    display: block;     
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-link { background: none; border: none; color: var(--text-variant); margin-top: 15px; cursor: pointer; }
+/* Archivo: css/styles.css */
+
+/* Animación de entrada suave */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    /* ... tus estilos anteriores ... */
+    animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Efecto hover y clic en el botón */
+.btn-primary {
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary:active {
+    transform: scale(0.98); /* Efecto de presionado */
+}
+
+/* Animación para inputs cuando están enfocados */
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* Animación suave para el cambio de pantallas (lo usaremos en el JS) */
+.view {
+    transition: opacity 0.5s ease-in-out;
+}
+/* Archivo: css/styles.css */
+
+.card {
+  background: #ffffff; /* O un color muy tenue como #fdfdfd */
+  border-top: 6px solid var(--primary); /* Una línea de color arriba */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15); /* Sombra con tono del color principal */
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Estilo para el botón cuando está cargando o deshabilitado */
+.btn-primary:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Estilo del spinner de carga */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+/* Estilos para el Dashboard (añadir al final de style.css) */
+/* Layout Principal */
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Sidebar a la izquierda, altura completa */
+.sidebar {
+    width: 260px;
+    background: #1e293b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+/* Contenido principal ocupa el resto */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: #f1f5f9;
+}
+
+/* Header arriba */
+.header {
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Lista de noticias (Vista completa) */
+.news-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.news-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.news-card:hover { border-color: #4f46e5; }
+.notification-btn { 
+    position: relative; 
+    cursor: pointer; 
+    font-size: 1.2rem; 
+    border: none; 
+    background: none; 
+}
+
+.notification-badge { 
+    position: absolute; 
+    top: -5px; 
+    right: -5px; 
+    background: #ef4444; 
+    color: white; 
+    font-size: 0.6rem; 
+    padding: 2px 6px; 
+    border-radius: 50%; 
+}
+
+.news-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 2rem; 
+}
